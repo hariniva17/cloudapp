@@ -4,6 +4,8 @@ const morgan = require('morgan');
 const bodyparser = require("body-parser");
 const path = require('path');
 
+const hostname = "0.0.0.0";
+
 const connectDB = require('./server/database/connection');
 const app=express();
 
@@ -28,5 +30,5 @@ app.use('/js', express.static(path.resolve(__dirname, "assets/js")))
 app.use('/', require('./server/routes/router'))
 
 
-app.listen(PORT,()=>{console.log('server is running on http://localhost:${PORT}')});
+app.listen(PORT,()=>{console.log('server is running on http://${hostname}:${PORT}')});
 
